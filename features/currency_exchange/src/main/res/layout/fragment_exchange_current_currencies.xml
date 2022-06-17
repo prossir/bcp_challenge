@@ -18,8 +18,9 @@
         <ImageView
             android:id="@+id/iv_bcp_logo"
             android:layout_width="match_parent"
-            android:layout_margin="20dp"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d_two"
+            android:contentDescription="@string/cd_iv_bcp_logo"
             android:src="@drawable/ic_bcp_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +38,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tl_sent_amount"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:hint="You send"
+                android:layout_width="@dimen/d_dynamic"
+                android:layout_height="@dimen/d_dynamic"
+                android:hint="@string/tl_sent_amount_hint"
                 app:layout_constraintBottom_toTopOf="@+id/tl_received_amount"
                 app:layout_constraintEnd_toStartOf="@+id/g_vertical_seventy"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,18 +59,12 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mb_sent_amount_currency_name"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/d_dynamic"
+                android:layout_height="@dimen/d_ten"
                 android:backgroundTint="@color/black"
                 android:gravity="start|center_vertical"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
                 android:onLongClick="@{_ -> viewModel.changeSentCurrency()}"
                 android:text="@{viewModel.baseCurrencyName}"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/mb_received_amount_currency_name"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -80,10 +75,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tl_received_amount"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="@dimen/d_dynamic"
+                android:layout_height="@dimen/d_dynamic"
                 android:enabled="false"
-                android:hint="You receive"
+                android:hint="@string/tl_received_amount_hint"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/g_vertical_seventy"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,18 +97,13 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mb_received_amount_currency_name"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/d_dynamic"
+                android:layout_height="@dimen/d_ten"
                 android:backgroundTint="@color/black"
                 android:gravity="start|center_vertical"
-                android:insetLeft="0dp"
-                android:insetTop="1dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
+                android:insetTop="@dimen/d_unit"
                 android:onLongClick="@{_ -> viewModel.changeReceivedCurrency()}"
                 android:text="@{viewModel.exchangeCurrencyName}"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/g_vertical_seventy"
@@ -121,17 +111,19 @@
                 tools:text="Soles" />
 
             <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:id="@+id/iv_invert_current_currencies"
+                android:layout_width="@dimen/d_six"
+                android:layout_height="@dimen/d_six"
                 android:clickable="true"
                 android:focusable="true"
                 android:onClick="@{_ -> viewModel.invertCurrentCurrencies()}"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_baseline_autorenew_24"
-                android:translationZ="2dp"
+                android:translationZ="@dimen/d_quarter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/cd_iv_invert_current_currencies" />
 
             <!-- Inner guideline -->
             <androidx.constraintlayout.widget.Guideline
@@ -147,24 +139,18 @@
             android:id="@+id/tv_overall_exchange_rate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/d_five"
             android:text="@{viewModel.exchangeRateDescription}"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/cl_change_calculator"
-            tools:text="Compra: 3.25 | Venta: 3.29" />
+            tools:text="Buy: 3.25 | Sale: 3.29" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mb_begin_your_operation"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/d_dynamic"
             android:backgroundTint="@color/purple_700"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            android:text="Begin Operation"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:text="@string/mb_begin_your_operation_text"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -177,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".08" />
+            app:layout_constraintGuide_percent=".04" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/g_horizontal_eighty_eight"

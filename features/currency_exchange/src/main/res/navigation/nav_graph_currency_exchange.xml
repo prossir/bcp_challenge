@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_currency_exchange"
     app:startDestination="@id/exchangeCurrentCurrenciesFragment">
 
     <fragment
         android:id="@+id/exchangeCurrentCurrenciesFragment"
         android:name="paolo.bcp.currency_exchange.platform.front.exchange_current_currency.ExchangeCurrentCurrenciesFragment"
-        android:label="ExchangeCurrentCurrenciesFragment" >
+        android:label="ExchangeCurrentCurrenciesFragment"
+        tools:layout="@layout/fragment_exchange_current_currencies">
         <action
             android:id="@+id/action_exchangeCurrentCurrenciesFragment_to_selectCurrentCurrenciesFragment"
             app:destination="@id/selectCurrentCurrenciesFragment" />
@@ -15,5 +17,6 @@
     <fragment
         android:id="@+id/selectCurrentCurrenciesFragment"
         android:name="paolo.bcp.currency_exchange.platform.front.select_current_currency.SelectCurrentCurrenciesFragment"
-        android:label="SelectCurrentCurrenciesFragment" />
+        android:label="SelectCurrentCurrenciesFragment"
+        tools:layout="@layout/item_exchange_rate_by_currency"/>
 </navigation>

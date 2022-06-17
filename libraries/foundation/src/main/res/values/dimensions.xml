@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="d_dynamic">0dp</dimen>
+    <dimen name="d_unit">1dp</dimen>
+
+    <dimen name="d_quarter">2dp</dimen>
+    <dimen name="d_half">4dp</dimen>
+    <dimen name="d_one">8dp</dimen>
+    <dimen name="d_one_and_half">12dp</dimen>
+    <dimen name="d_two">16dp</dimen>
+    <dimen name="d_three">24dp</dimen>
+    <dimen name="d_four">32dp</dimen>
+    <dimen name="d_five">40dp</dimen>
+    <dimen name="d_six">48dp</dimen>
+    <dimen name="d_ten">80dp</dimen>
+    <dimen name="d_eighteen">144dp</dimen>
+</resources>

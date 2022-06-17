@@ -14,7 +14,6 @@ class BCPChallengeApp: MultiDexApplication() {
         super.onCreate()
         initElegantDebugging()
         initBackwardsCompatibleTime()
-        //WorkManagerAdmin.initWorkManagers(this)
     }
 
     private fun initElegantDebugging() {

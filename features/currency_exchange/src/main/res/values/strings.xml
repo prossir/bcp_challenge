@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fragment [fragment_exchange_current_currencies.xml] -->
+    <string name="cd_iv_bcp_logo">Banco de Crédito del Perú logo</string>
+    <string name="tl_received_amount_hint">You receive</string>
+    <string name="tl_sent_amount_hint">You send</string>
+    <string name="cd_iv_invert_current_currencies">Inverts the currency currently being sent for the one being received</string>
+    <string name="mb_begin_your_operation_text">Begin Operation</string>
+
+</resources>

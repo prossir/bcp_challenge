@@ -23,20 +23,22 @@
 
         <ImageView
             android:id="@+id/iv_flag"
-            android:layout_width="148dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/d_eighteen"
+            android:layout_height="@dimen/d_ten"
             android:contentDescription="@{exchangeRateWithCurrencies.exchangeCurrency.flagDescription}"
             app:imageErrorResource="@{&quot;drawable/ic_baseline_flag_24&quot;}"
             app:imageUrl="@{exchangeRateWithCurrencies.exchangeCurrency.flagUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_baseline_autorenew_24" />
 
         <TextView
             android:id="@+id/tv_country_name"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/d_dynamic"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginEnd="@dimen/d_two"
+            android:layout_marginStart="@dimen/d_two"
             android:layout_marginTop="16dp"
             android:text="@{exchangeRateWithCurrencies.exchangeCurrency.countryName}"
             android:textColor="@{exchangeRateWithCurrencies.textColor}"
@@ -50,11 +52,12 @@
 
         <TextView
             android:id="@+id/tv_exchange_equivalence"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/d_dynamic"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="@dimen/d_two"
+            android:layout_marginTop="@dimen/d_one"
+            android:layout_marginEnd="@dimen/d_two"
+            android:layout_marginBottom="@dimen/d_two"
             android:text="@{exchangeRateWithCurrencies.exchangeEquivalenceDescription}"
             android:textColor="@{exchangeRateWithCurrencies.textColor}"
             android:textSize="16sp"
@@ -66,7 +69,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/d_unit"
             android:background="@color/lightGray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
