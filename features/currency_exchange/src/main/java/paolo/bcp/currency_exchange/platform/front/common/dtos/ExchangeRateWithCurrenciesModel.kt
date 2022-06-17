@@ -1,6 +1,7 @@
 package paolo.bcp.currency_exchange.platform.front.common.dtos
 
 import android.graphics.Color
+import paolo.bcp.currency_exchange.utils.constants.CurrencyExchangeConstants
 import paolo.bcp.foundation.database.dtos.enums.CurrencyStatusEnum
 
 
@@ -29,18 +30,18 @@ data class ExchangeRateWithCurrenciesModel(
     val color: Int
         get() {
             return if(isCurrent) {
-                Color.parseColor("#004192")
+                Color.parseColor(CurrencyExchangeConstants.BCP_BLUE_COLOR)
             } else {
-                Color.parseColor("#ffffff")
+                Color.parseColor(CurrencyExchangeConstants.WHITE)
             }
         }
 
     val textColor: Int
         get() {
             return if(isCurrent) {
-                Color.parseColor("#ffffff")
+                Color.parseColor(CurrencyExchangeConstants.WHITE)
             } else {
-                Color.parseColor("#000000")
+                Color.parseColor(CurrencyExchangeConstants.BLACK)
             }
         }
 

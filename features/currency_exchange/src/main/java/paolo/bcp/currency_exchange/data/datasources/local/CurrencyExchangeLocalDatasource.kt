@@ -22,7 +22,8 @@ class CurrencyExchangeLocalDatasource(
         return currencyDao.findLiveByStatus(status)
     }
 
-    fun retrieveExchangeRatesOfCurrencyByStatus(status: CurrencyStatusEnum): List<ExchangeRateWithCurrenciesEntity> {
+    fun retrieveExchangeRatesOfCurrencyByStatus(status: CurrencyStatusEnum):
+            List<ExchangeRateWithCurrenciesEntity> {
         currencyDao.findByStatus(status)!!.apply {
             return exchangeRateDao.findAllOfSenderCurrency(this.id)
         }
@@ -33,7 +34,8 @@ class CurrencyExchangeLocalDatasource(
     }
 
     fun retrieveLiveCurrentExchangeRate(): LiveData<ExchangeRateWithCurrenciesEntity?> {
-        return Transformations.switchMap(currencyDao.findLiveByStatus(CurrencyStatusEnum.SENT_CURRENCY)) { senderCurrency ->
+        return Transformations.switchMap(currencyDao.findLiveByStatus(CurrencyStatusEnum.SENT_CURRENCY))
+        { senderCurrency ->
             exchangeRateDao.findLiveCurrent(senderCurrency!!.id)
         }
     }
