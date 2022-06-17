@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="exchangeRateWithCurrencies"
+            type="paolo.bcp.currency_exchange.platform.front.common.dtos.ExchangeRateWithCurrenciesModel" />
+
+        <variable
+            name="listener"
+            type="paolo.bcp.currency_exchange.platform.front.select_current_currency.adapter.OnExchangeRateClicked" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{exchangeRateWithCurrencies.color}"
+        android:clickable="@{!exchangeRateWithCurrencies.isCurrent}"
+        android:focusable="@{!exchangeRateWithCurrencies.isCurrent}"
+        android:onClick="@{_ -> listener.onExchangeRateSelected(exchangeRateWithCurrencies)}">
+
+        <ImageView
+            android:id="@+id/iv_flag"
+            android:layout_width="148dp"
+            android:layout_height="80dp"
+            android:contentDescription="@{exchangeRateWithCurrencies.exchangeCurrency.flagDescription}"
+            app:imageErrorResource="@{&quot;drawable/ic_baseline_flag_24&quot;}"
+            app:imageUrl="@{exchangeRateWithCurrencies.exchangeCurrency.flagUrl}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_baseline_autorenew_24" />
+
+        <TextView
+            android:id="@+id/tv_country_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{exchangeRateWithCurrencies.exchangeCurrency.countryName}"
+            android:textColor="@{exchangeRateWithCurrencies.textColor}"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_exchange_equivalence"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_flag"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="European Union" />
+
+        <TextView
+            android:id="@+id/tv_exchange_equivalence"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@{exchangeRateWithCurrencies.exchangeEquivalenceDescription}"
+            android:textColor="@{exchangeRateWithCurrencies.textColor}"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_flag"
+            app:layout_constraintTop_toBottomOf="@+id/tv_country_name"
+            tools:text="1 EUR = 1 EUR" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

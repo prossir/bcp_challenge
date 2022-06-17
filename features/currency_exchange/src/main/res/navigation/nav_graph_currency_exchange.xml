@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_currency_exchange"
+    app:startDestination="@id/exchangeCurrentCurrenciesFragment">
+
+    <fragment
+        android:id="@+id/exchangeCurrentCurrenciesFragment"
+        android:name="paolo.bcp.currency_exchange.platform.front.exchange_current_currency.ExchangeCurrentCurrenciesFragment"
+        android:label="ExchangeCurrentCurrenciesFragment" >
+        <action
+            android:id="@+id/action_exchangeCurrentCurrenciesFragment_to_selectCurrentCurrenciesFragment"
+            app:destination="@id/selectCurrentCurrenciesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectCurrentCurrenciesFragment"
+        android:name="paolo.bcp.currency_exchange.platform.front.select_current_currency.SelectCurrentCurrenciesFragment"
+        android:label="SelectCurrentCurrenciesFragment" />
+</navigation>

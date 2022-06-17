@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="paolo.bcp.currency_exchange.platform.front.common.views.CurrencyExchangeViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_bcp_logo"
+            android:layout_width="match_parent"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_bcp_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/g_horizontal_eight" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_change_calculator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_sent_amount"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:hint="You send"
+                app:layout_constraintBottom_toTopOf="@+id/tl_received_amount"
+                app:layout_constraintEnd_toStartOf="@+id/g_vertical_seventy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_sent_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    android:text="@={viewModel.sentAmountAsString}"
+                    tools:text="100" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_sent_amount_currency_name"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:backgroundTint="@color/black"
+                android:gravity="start|center_vertical"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:onLongClick="@{_ -> viewModel.changeSentCurrency()}"
+                android:text="@{viewModel.baseCurrencyName}"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/mb_received_amount_currency_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/g_vertical_seventy"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Peruvian Sol" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_received_amount"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:enabled="false"
+                android:hint="You receive"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/g_vertical_seventy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tl_sent_amount">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_received_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    android:text="@{viewModel.receivedAmountAsString}"
+                    tools:text="100" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_received_amount_currency_name"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:backgroundTint="@color/black"
+                android:gravity="start|center_vertical"
+                android:insetLeft="0dp"
+                android:insetTop="1dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:onLongClick="@{_ -> viewModel.changeReceivedCurrency()}"
+                android:text="@{viewModel.exchangeCurrencyName}"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/g_vertical_seventy"
+                app:layout_constraintTop_toBottomOf="@+id/mb_sent_amount_currency_name"
+                tools:text="Soles" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{_ -> viewModel.invertCurrentCurrencies()}"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_baseline_autorenew_24"
+                android:translationZ="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Inner guideline -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/g_vertical_seventy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".70" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_overall_exchange_rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@{viewModel.exchangeRateDescription}"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/cl_change_calculator"
+            tools:text="Compra: 3.25 | Venta: 3.29" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_begin_your_operation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/purple_700"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text="Begin Operation"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/g_horizontal_eighty_eight" />
+
+        <!-- Guidelines -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/g_horizontal_eight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".08" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/g_horizontal_eighty_eight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".88" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
